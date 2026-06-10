@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+    background-color: #F5F3FF;
+    color: #26215C;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 rounded-xl font-medium text-sm transition-all;
+    background-color: #534AB7;
+    color: #fff;
+  }
+  .btn-primary:hover { background-color: #3C3489; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-xl font-medium text-sm transition-all;
+    background-color: #EEEDFE;
+    color: #3C3489;
+    border: 1px solid #AFA9EC;
+  }
+  .btn-secondary:hover { background-color: #CECBF6; }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-xl text-sm transition-all;
+    background-color: transparent;
+    color: #7F77DD;
+    border: 1px solid #CECBF6;
+  }
+  .btn-ghost:hover { background-color: #EEEDFE; }
+
+  .input {
+    @apply w-full rounded-xl px-3 py-2 text-sm transition-all;
+    border: 1px solid #AFA9EC;
+    background-color: #FDFCFF;
+    color: #26215C;
+  }
+  .input:focus {
+    outline: none;
+    border-color: #534AB7;
+    box-shadow: 0 0 0 3px rgba(83,74,183,0.12);
+  }
+  .input::placeholder { color: #AFA9EC; }
+
+  .card {
+    @apply rounded-2xl p-5;
+    background-color: #FDFCFF;
+    border: 1px solid #CECBF6;
+  }
+
+  .card-lavender {
+    @apply rounded-2xl p-5;
+    background-color: #EEEDFE;
+    border: 1px solid #AFA9EC;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-purple {
+    background-color: #EEEDFE;
+    color: #3C3489;
+    border: 1px solid #AFA9EC;
+  }
+  .badge-green {
+    background-color: #E1F5EE;
+    color: #085041;
+    border: 1px solid #9FE1CB;
+  }
+  .badge-amber {
+    background-color: #FAEEDA;
+    color: #633806;
+    border: 1px solid #FAC775;
+  }
+  .badge-red {
+    background-color: #FCEBEB;
+    color: #791F1F;
+    border: 1px solid #F7C1C1;
+  }
+
+  .avatar {
+    @apply flex items-center justify-center rounded-full font-medium text-sm flex-shrink-0;
+    background-color: #EEEDFE;
+    color: #534AB7;
+  }
+
+  .page-bg { background-color: #F5F3FF; }
+  .surface { background-color: #FDFCFF; }
+
+  .tab-bar {
+    @apply flex gap-1 p-1 rounded-xl;
+    background-color: #EEEDFE;
+  }
+  .tab-item {
+    @apply px-4 py-1.5 rounded-lg text-sm font-medium transition-all cursor-pointer;
+    color: #7F77DD;
+    background: transparent;
+    border: none;
+  }
+  .tab-item.active {
+    background-color: #FDFCFF;
+    color: #534AB7;
+  }
+
+  .progress-bar-bg {
+    @apply h-1.5 rounded-full;
+    background-color: #EEEDFE;
+  }
+  .progress-bar-fill {
+    @apply h-1.5 rounded-full;
+    background-color: #534AB7;
+  }
+
+  .divider { border-top: 1px solid #CECBF6; }
+
+  .text-brand { color: #534AB7; }
+  .text-brand-dark { color: #26215C; }
+  .text-brand-mid { color: #3C3489; }
+  .text-brand-muted { color: #7F77DD; }
+  .text-brand-light { color: #AFA9EC; }
+
+  .skeleton {
+    @apply animate-pulse rounded-xl;
+    background-color: #EEEDFE;
+  }
+}
