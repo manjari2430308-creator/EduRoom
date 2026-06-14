@@ -1,6 +1,8 @@
 const OpenAI = require("openai");
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({ 
+  apiKey: process.env.OPENAI_API_KEY || "sk-placeholder" 
+});
 
 const generateFeedback = async (submissionContent, assignmentTitle) => {
   const completion = await openai.chat.completions.create({
