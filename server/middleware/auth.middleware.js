@@ -1,12 +1,18 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const { generateAccessToken, setTokenCookies } = require("../utils/generateToken");
+const { generateAccessToken } = require("../utils/generateToken");
 
 const protect = async (req, res, next) => {
   try {
-    const token = req.cookies.accessToken;
+    // Check Authorization header first (for production)
+    let token = null;
+    if (req.headers.authorization?.startsWith("Bearer ")) {
+      token = req.headers.authorization.split(" ")[1];
+    } else {
+      token = req.cookies.accessToken;
+    }
+
     if (!token) {
-      // Try refresh token
       const refreshToken = req.cookies.refreshToken;
       if (!refreshToken) return res.status(401).json({ message: "Not authorized" });
 

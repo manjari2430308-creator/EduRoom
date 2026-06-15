@@ -15,7 +15,12 @@ const register = async (req, res) => {
 
     setTokenCookies(res, accessToken, refreshToken);
     res.status(201).json({
-      _id: user._id, name: user.name, email: user.email, role: user.role, avatar: user.avatar,
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      avatar: user.avatar,
+      accessToken,
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -36,7 +41,12 @@ const login = async (req, res) => {
 
     setTokenCookies(res, accessToken, refreshToken);
     res.json({
-      _id: user._id, name: user.name, email: user.email, role: user.role, avatar: user.avatar,
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      avatar: user.avatar,
+      accessToken,
     });
   } catch (err) {
     res.status(500).json({ message: err.message });

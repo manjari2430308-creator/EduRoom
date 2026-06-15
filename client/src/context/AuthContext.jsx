@@ -14,22 +14,25 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoading(false));
   }, []);
 
-  const login = async (email, password) => {
-    const { data } = await api.post("/auth/login", { email, password });
-    setUser(data);
-    return data;
-  };
+ const login = async (email, password) => {
+  const { data } = await api.post("/auth/login", { email, password });
+  localStorage.setItem("token", data.accessToken);
+  setUser(data);
+  return data;
+};
 
-  const register = async (name, email, password, role) => {
-    const { data } = await api.post("/auth/register", { name, email, password, role });
-    setUser(data);
-    return data;
-  };
+const register = async (name, email, password, role) => {
+  const { data } = await api.post("/auth/register", { name, email, password, role });
+  localStorage.setItem("token", data.accessToken);
+  setUser(data);
+  return data;
+};
 
-  const logout = async () => {
-    await api.post("/auth/logout");
-    setUser(null);
-  };
+const logout = async () => {
+  await api.post("/auth/logout");
+  localStorage.removeItem("token");
+  setUser(null);
+};
 
   if (loading) {
     return (
